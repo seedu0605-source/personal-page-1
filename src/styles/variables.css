@@ -1,0 +1,18 @@
+:root {
+  /* 색상 */
+  --color-bg: #f2f0eb;
+  --color-text: #151515;
+
+  /* 레이아웃 */
+  --header-height: 72px;
+
+  /* 얼굴 조형이 사용하는 세로 높이 (화면 높이의 약 65%) */
+  --face-height: 65vh;
+
+  /* 좌우 안전 여백 */
+  --gutter: clamp(20px, 5vw, 64px);
+
+  /* 타이포그래피 — 얇고 정제된 산세리프 */
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI',
+    'Helvetica Neue', Arial, sans-serif;
+}
