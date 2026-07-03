@@ -1,0 +1,146 @@
+.hero {
+  position: relative;
+  width: 100%;
+  /* 최소 100vh, 스크롤 인터랙션 영역은 300vh */
+  min-height: 100vh;
+  height: 300vh;
+}
+
+/* 100vh 동안 화면에 고정되는 내부 뷰 */
+.sticky {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+  background: var(--color-bg);
+}
+
+/* 물리(드래그) 모드일 때 기기에 grab 커서 */
+.grab {
+  cursor: grab;
+}
+.grab:active {
+  cursor: grabbing;
+}
+
+/* 기기 추가 (+) 버튼 — 우측 상단 */
+.addBtn {
+  position: fixed;
+  top: calc(var(--header-height) + 20px);
+  right: var(--gutter);
+  z-index: 200;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  border: 1px solid var(--color-text);
+  border-radius: 0;
+  background: transparent;
+  color: var(--color-text);
+  font-size: 24px;
+  font-weight: 300;
+  line-height: 1;
+  cursor: pointer;
+  transition: background 0.18s ease, color 0.18s ease;
+}
+.addBtn span {
+  transform: translateY(-1px);
+}
+.addBtn:hover {
+  background: var(--color-text);
+  color: var(--color-bg);
+}
+
+/* 추가된 기기 레이어 — 물리 모드에서만 표시 */
+.extraLayer {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0;
+}
+.extraLayer.on {
+  opacity: 1;
+}
+.extra {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: clamp(88px, 15vw, 180px);
+  will-change: transform;
+}
+.extra img {
+  width: 100%;
+  height: auto;
+  display: block;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+/* 추가된 기기의 화면 창 + 웹캠 전체 영상 */
+.screen {
+  position: absolute;
+  overflow: hidden;
+  pointer-events: none;
+}
+/* width/height/left/top 은 인라인으로 주입(랜덤 크롭). 화면 영역을 채우도록 cover. */
+.coverVideo {
+  position: absolute;
+  object-fit: cover;
+}
+
+/* 기기들이 놓이는 무대 (뷰 전체) */
+.stage {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 얼굴 조형 컨테이너 — 레퍼런스 콜라주의 세로:가로 비율(약 100:79)을 유지.
+   높이는 화면의 약 65%를 쓰되, 좁은 화면에서는 폭에 맞춰 줄어든다.
+   자식(기기)들은 이 박스를 기준으로 % 위치를 잡는다. */
+.face {
+  position: relative;
+  aspect-ratio: 79 / 100;
+  height: min(var(--face-height), 116vw);
+  width: auto;
+}
+
+/* 왼쪽 상단 카피 */
+.copy {
+  position: absolute;
+  top: calc(var(--header-height) + 3vh);
+  left: var(--gutter);
+  z-index: 20;
+  margin: 0;
+  max-width: 60vw;
+  font-size: clamp(18px, 2.2vw, 30px);
+  font-weight: 300;
+  line-height: 1.28;
+  letter-spacing: -0.01em;
+}
+
+/* 하단 정보 */
+.meta {
+  position: absolute;
+  left: var(--gutter);
+  bottom: clamp(24px, 5vh, 48px);
+  z-index: 20;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+@media (max-width: 640px) {
+  .copy {
+    max-width: 80vw;
+  }
+}

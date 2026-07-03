@@ -1,0 +1,29 @@
+.frame {
+  position: absolute;
+  /* left / top / width / transform / z-index 는 인라인으로 주입 */
+  /* 스크롤 낙하 시 GPU 합성으로 부드럽게 */
+  will-change: transform, opacity;
+}
+
+.image {
+  width: 100%;
+  height: auto;
+  display: block;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+/* 기기 이미지 위, 화면(디스플레이) 영역에 얹히는 웹캠 창 */
+.screen {
+  position: absolute;
+  overflow: hidden;
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* 웹캠 영상 — 크기/오프셋(left/top/width/height)은 Hero 가 주입.
+   9개 화면이 하나의 얼굴을 이루도록 각 조각을 정렬한다. */
+.video {
+  position: absolute;
+  object-fit: cover;
+}
