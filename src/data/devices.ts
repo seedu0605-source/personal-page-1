@@ -35,11 +35,15 @@ export interface Device {
   screen?: ScreenRect
 }
 
+// public/ 자산 경로를 배포 base(예: /personal-page-1/)에 맞춰 붙인다.
+// 개발 시 BASE_URL='/', 빌드 시 '/personal-page-1/'.
+const asset = (p: string) => `${import.meta.env.BASE_URL}${p}`
+
 export const devices: Device[] = [
   // 이마 — 화이트 아이폰(가로)
   {
     id: 'forehead',
-    image: '/images/devices/phone-wide-white.png',
+    image: asset('images/devices/phone-wide-white.png'),
     alt: '화이트 아이폰 — 이마',
     x: 35,
     y: 15,
@@ -52,7 +56,7 @@ export const devices: Device[] = [
   // 오른쪽 관자놀이 — 블랙 미디어 플레이어(가로, 이어버드)
   {
     id: 'temple-right',
-    image: '/images/devices/media-player-black.png',
+    image: asset('images/devices/media-player-black.png'),
     alt: '블랙 미디어 플레이어 — 오른쪽 관자놀이',
     x: 79,
     y: 17,
@@ -65,7 +69,7 @@ export const devices: Device[] = [
   // 왼쪽 눈 — 노키아(세로)
   {
     id: 'eye-left',
-    image: '/images/devices/phone-nokia.png',
+    image: asset('images/devices/phone-nokia.png'),
     alt: '노키아 — 왼쪽 눈',
     x: 14.5,
     y: 37,
@@ -78,7 +82,7 @@ export const devices: Device[] = [
   // 두 눈 — 블랙 스마트폰(가로)
   {
     id: 'eyes',
-    image: '/images/devices/phone-wide-black.png',
+    image: asset('images/devices/phone-wide-black.png'),
     alt: '블랙 스마트폰 — 두 눈',
     x: 42,
     y: 35.5,
@@ -91,7 +95,7 @@ export const devices: Device[] = [
   // 오른쪽 볼 — 파나소닉 무선전화(세로)
   {
     id: 'cheek-right',
-    image: '/images/devices/phone-panasonic.png',
+    image: asset('images/devices/phone-panasonic.png'),
     alt: '파나소닉 무선전화 — 오른쪽 볼',
     x: 77,
     y: 41,
@@ -104,7 +108,7 @@ export const devices: Device[] = [
   // 코 — 화이트 삼성 스마트폰(가로)
   {
     id: 'nose',
-    image: '/images/devices/phone-wide-small-white.png',
+    image: asset('images/devices/phone-wide-small-white.png'),
     alt: '화이트 삼성 스마트폰 — 코',
     x: 42,
     y: 50.5,
@@ -117,7 +121,7 @@ export const devices: Device[] = [
   // 왼쪽 볼/턱 — 캐논 디지털 카메라(세로)
   {
     id: 'cheek-left',
-    image: '/images/devices/digital-camera-silver.png',
+    image: asset('images/devices/digital-camera-silver.png'),
     alt: '캐논 디지털 카메라 — 왼쪽 볼',
     x: 16,
     y: 72.5,
@@ -130,7 +134,7 @@ export const devices: Device[] = [
   // 입 — 핑크 폰(세로)
   {
     id: 'mouth',
-    image: '/images/devices/phone-pink.png',
+    image: asset('images/devices/phone-pink.png'),
     alt: '핑크 폰 — 입',
     x: 41,
     y: 74.5,
@@ -143,7 +147,7 @@ export const devices: Device[] = [
   // 턱 — 삼성 폴더(세로)
   {
     id: 'chin',
-    image: '/images/devices/phone-flip-black.png',
+    image: asset('images/devices/phone-flip-black.png'),
     alt: '삼성 폴더 — 턱',
     x: 62.5,
     y: 76.5,

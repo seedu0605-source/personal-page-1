@@ -6,7 +6,7 @@ import styles from './Hero.module.css'
 
 // true 로 두면 카메라가 없어도(권한 거부·미지원) 화면에 '테스트 얼굴' 패턴을 띄워
 // 웹캠 효과를 미리 볼 수 있다. 배포 기본값은 false — 카메라 없으면 정적 PNG 화면 유지.
-const DEBUG_TEST_PATTERN = true
+const DEBUG_TEST_PATTERN = false
 
 // + 버튼으로 추가할 수 있는 기기 이미지 풀. (아이폰/갤럭시 PNG 를 넣으면 그대로 확장됨)
 const ADDABLE = devices.map((d) => d.image)
